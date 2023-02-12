@@ -46,9 +46,9 @@
             </div>
         </section>
 
-        <section class="w-[80%] mx-auto mt-12">
+        <section class="md:w-[80%] md:mx-auto mt-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-fuchsia-400 rounded-xl p-8">
+                <div class="bg-fuchsia-400 md:rounded-xl p-8">
                     <h4 class="text-4xl text-white mb-4">Please Deposit</h4>
                     <div id="deposit-alert" class="hidden">
                         <div class="flex mb-4 text-red-600">
@@ -74,7 +74,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="w-[80%] mx-auto">
+                    <div class="md:w-[80%] md:mx-auto">
                         <input onkeyup="setAlert('deposit-alert', false)"
                             class="w-[80%] block mb-2 px-3 py-2 rounded-md" type="number" name="" id="deposit-field"
                             placeholder="$ Amount you want to deposit">
@@ -82,7 +82,7 @@
                             class="bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-md px-8 py-2">Deposit</button>
                     </div>
                 </div>
-                <div class="bg-sky-400 rounded-xl p-8">
+                <div class="bg-sky-400 md:rounded-xl p-8">
                     <h4 class="text-4xl text-white mb-4">Please Withdraw</h4>
                     <div id="withdraw-alert" class="hidden">
                         <div class="flex mb-4 text-red-600">
@@ -132,7 +132,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="w-[80%] mx-auto">
+                    <div class="md:w-[80%] md:mx-auto">
                         <input onkeyup="setAlert('withdraw-alert', false); setAlert('insufficient-alert', false)"
                             class="w-[80%] block mb-2 px-3 py-2 rounded-md" type="number" name="" id="withdraw-field"
                             placeholder="$ Amount you want to withdraw">
