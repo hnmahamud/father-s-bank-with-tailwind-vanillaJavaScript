@@ -31,15 +31,15 @@
     <main>
         <section class="w-[80%] mx-auto text-white mt-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-green-400 rounded-xl p-8">
+                <div class="bg-green-400 md:rounded-xl p-8">
                     <h4 class="text-4xl">Deposit</h4>
                     <p class="text-3xl">$<span id="deposit-number">00</span></p>
                 </div>
-                <div class="bg-yellow-500 rounded-xl p-8">
+                <div class="bg-yellow-500 md:rounded-xl p-8">
                     <h4 class="text-4xl">Withdraw</h4>
                     <p class="text-3xl">$<span id="withdraw-number">00</span></p>
                 </div>
-                <div class="bg-violet-500 rounded-xl p-8">
+                <div class="bg-violet-500 md:rounded-xl p-8">
                     <h4 class="text-4xl">Balance</h4>
                     <p class="text-3xl">$<span id="balance-number">1240</span></p>
                 </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="md:w-[80%] md:mx-auto">
                         <input onkeyup="setAlert('deposit-alert', false)"
-                            class="w-[80%] block mb-2 px-3 py-2 rounded-md" type="number" name="" id="deposit-field"
+                            class="w-full md:w-[80%] block mb-2 px-3 py-2 rounded-md" type="number" name="" id="deposit-field"
                             placeholder="$ Amount you want to deposit">
                         <button id="btn-deposit"
                             class="bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-md px-8 py-2">Deposit</button>
@@ -134,7 +134,7 @@
                     </div>
                     <div class="md:w-[80%] md:mx-auto">
                         <input onkeyup="setAlert('withdraw-alert', false); setAlert('insufficient-alert', false)"
-                            class="w-[80%] block mb-2 px-3 py-2 rounded-md" type="number" name="" id="withdraw-field"
+                            class="w-full md:w-[80%] block mb-2 px-3 py-2 rounded-md" type="number" name="" id="withdraw-field"
                             placeholder="$ Amount you want to withdraw">
                         <button id="btn-withdraw"
                             class="bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-md px-8 py-2">Withdraw</button>
