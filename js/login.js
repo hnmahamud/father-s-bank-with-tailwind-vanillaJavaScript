@@ -16,6 +16,14 @@ userEmail.addEventListener('keyup', function (event) {
     }
 });
 
+userPassword.addEventListener('keyup', function (event) {
+    setAlert('user-wrong-alert', false);
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        submitBtn.click();
+    }
+});
+
 submitBtn.addEventListener('click', function () {
     if (userEmail.value === 'child@father.com' && userPassword.value === 'secret') {
         setAlert('user-wrong-alert', false);
