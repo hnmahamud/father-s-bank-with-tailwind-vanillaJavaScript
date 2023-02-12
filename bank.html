@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: "#da373d",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-5xl text-center mt-6">
+            Let's get some
+            <span class="font-semibold text-violet-600">Moooney</span>!!!
+        </h1>
+    </header>
+
+    <main>
+        <section class="w-[80%] mx-auto text-white mt-12">
+            <div class="grid grid-cols-3 gap-4">
+                <div class="bg-green-400 rounded-xl p-8">
+                    <h4 class="text-4xl">Deposit</h4>
+                    <p class="text-3xl">$<span id="deposit-number">00</span></p>
+                </div>
+                <div class="bg-yellow-500 rounded-xl p-8">
+                    <h4 class="text-4xl">Withdraw</h4>
+                    <p class="text-3xl">$<span id="withdraw-number">00</span></p>
+                </div>
+                <div class="bg-violet-500 rounded-xl p-8">
+                    <h4 class="text-4xl">Balance</h4>
+                    <p class="text-3xl">$<span id="balance-number">1240</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-[80%] mx-auto mt-12">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-fuchsia-400 rounded-xl p-8">
+                    <h4 class="text-4xl text-white mb-4">Please Deposit</h4>
+                    <div id="deposit-alert" class="hidden">
+                        <div class="flex mb-4 text-red-600">
+                            <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="sr-only">Info</span>
+                            <div class="ml-3 text-sm font-medium">
+                                Please provide a valid number!
+                            </div>
+                            <button onclick="setAlert('deposit-alert', false)" id="alert-btn" type="button"
+                                class="ml-4 -mx-1.5 -my-1.5 p-1.5 hover:text-red-800 inline-flex h-8 w-8">
+                                <span class="sr-only">Close</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-[80%] mx-auto">
+                        <input onkeyup="setAlert('deposit-alert', false)"
+                            class="w-[80%] block mb-2 px-3 py-2 rounded-md" type="number" name="" id="deposit-field"
+                            placeholder="$ Amount you want to deposit">
+                        <button id="btn-deposit"
+                            class="bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-md px-8 py-2">Deposit</button>
+                    </div>
+                </div>
+                <div class="bg-sky-400 rounded-xl p-8">
+                    <h4 class="text-4xl text-white mb-4">Please Withdraw</h4>
+                    <div id="withdraw-alert" class="hidden">
+                        <div class="flex mb-4 text-red-600">
+                            <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="sr-only">Info</span>
+                            <div class="ml-3 text-sm font-medium">
+                                Please provide a valid number!
+                            </div>
+                            <button onclick="setAlert('withdraw-alert', false)" id="alert-btn" type="button"
+                                class="ml-4 -mx-1.5 -my-1.5 p-1.5 hover:text-red-800 inline-flex h-8 w-8">
+                                <span class="sr-only">Close</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="insufficient-alert" class="hidden">
+                        <div class="flex mb-4 text-red-600">
+                            <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="sr-only">Info</span>
+                            <div class="ml-3 text-sm font-medium">
+                                Insufficient Balance!
+                            </div>
+                            <button onclick="setAlert('insufficient-alert', false)" id="alert-btn" type="button"
+                                class="ml-4 -mx-1.5 -my-1.5 p-1.5 hover:text-red-800 inline-flex h-8 w-8">
+                                <span class="sr-only">Close</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-[80%] mx-auto">
+                        <input onkeyup="setAlert('withdraw-alert', false); setAlert('insufficient-alert', false)"
+                            class="w-[80%] block mb-2 px-3 py-2 rounded-md" type="number" name="" id="withdraw-field"
+                            placeholder="$ Amount you want to withdraw">
+                        <button id="btn-withdraw"
+                            class="bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-md px-8 py-2">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/utilities.js"></script>
+    <script src="js/deposit.js"></script>
+    <script src="js/withdraw.js"></script>
+</body>
+
+</html>

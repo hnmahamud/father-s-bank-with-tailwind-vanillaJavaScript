@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: "#da373d",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-5xl text-center mt-6">
+            Welcome to your
+            <span class="font-semibold text-violet-600">Father's Bank</span>!!!
+        </h1>
+    </header>
+    <main>
+        <section class="w-[80%] mx-auto bg-blue-100 mt-12 p-8">
+            <div class="w-[80%] mx-auto">
+                <h3 class="text-3xl font-semibold mb-4">Please Login</h3>
+                <div id="user-wrong-alert" class="hidden">
+                    <div class="flex mb-4 text-red-600">
+                        <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Info</span>
+                        <div class="ml-3 text-sm font-medium">
+                            Incorrect Username or Password!
+                        </div>
+                        <button onclick="setAlert('user-wrong-alert', false)" id="alert-btn" type="button"
+                            class="ml-4 -mx-1.5 -my-1.5 p-1.5 hover:text-red-800 inline-flex h-8 w-8">
+                            <span class="sr-only">Close</span>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <input class="w-[80%] block mb-2 px-3 py-2 rounded-md" type="email" name="" id="user-email"
+                    placeholder="Email: child@father.com">
+                <input class="w-[80%] block mb-2 px-3 py-2 rounded-md" type="password" name="" id="user-password"
+                    placeholder="Password: secret">
+                <button id="btn-submit" disabled
+                    class="bg-amber-600 text-white font-medium rounded-md px-8 py-2 disabled:opacity-50">Submit</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/utilities.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>
